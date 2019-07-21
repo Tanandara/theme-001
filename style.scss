@@ -1,0 +1,113 @@
+/*
+Theme Name: Tanandara's Theme 001
+Theme URI: https://shenlong18hit.com
+Author: the WordPress team
+Author URI: https://shenlong18hit.com
+Description: Business Theme
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: custom-theme
+Text Domain: tanandara-theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+
+
+.nav {
+    width: 100%;
+  }
+
+.navigation-main {
+    //
+    // Structural Styles
+    //
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    text-align: right;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        left: -999em; // "Hide" the sub-menus
+    }
+
+    li {
+        display: inline-block;
+        position: relative;
+        text-align: left; // Reset text alignment
+
+        // First sub-menus appear below the menu item
+        &:hover {
+            > ul {
+                left: auto;
+            }
+        }
+        
+        // All other levels appear on the right
+        li {
+            display: block;
+            
+            &:hover {
+                > ul {
+                    left: 100%;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    // Global menu link styles
+    a {
+        color: #adb5bd;
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+        padding: 10px 15px;
+    }
+
+    // Active & hover styles
+    a:hover,
+    li:hover > a,
+    .current-menu-item > a,
+    .current-menu-ancestor > a {
+        color: #e9ecef;
+    }
+
+    // Submenu styles
+    ul {
+        background-color: #353b40;
+    }
+
+    // First level item arrows
+    .menu-item-has-children {
+        > a {
+            &::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 4px solid transparent;
+                border-top-color: currentColor; // Nifty trick to always keep the arrow colored the same as the menu item's text in every different state 
+            }
+        }
+    }
+}
+
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
